@@ -5,11 +5,12 @@
 replicaCount: 1
 
 image:
+  registry: docker.io
   repository: krzysztof-homework-app
+  tag: latest
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: latest
-
+  
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -105,3 +106,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+env: {}
