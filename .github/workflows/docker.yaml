@@ -83,10 +83,9 @@ jobs:
     - name: Package and push helm chart to Amazon ECR
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: my-ecr-repo
       run: |
-        helm package $REPOSITORY
-        helm push $REPOSITORY-0.1.0.tgz oci://$REGISTRY
+        helm package ${{ env.REPOSITORY }}
+        helm push ${{ env.REPOSITORY }}-0.1.0.tgz oci://$REGISTRY
 
     - name: Clear post-build
       env:
