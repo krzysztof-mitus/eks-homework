@@ -41,6 +41,7 @@ jobs:
 
     env:
       REPOSITORY: krzysztof-homework-app
+      HELM_CHART_NAME: homework-app
       IMAGE_TAG: latest
 
     steps:
@@ -85,8 +86,8 @@ jobs:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       working-directory: ./chart
       run: |
-        helm package ${{ env.REPOSITORY }}
-        helm push ${{ env.REPOSITORY }}-0.1.0.tgz oci://$REGISTRY
+        helm package ${{ env.HELM_CHART_NAME }}
+        helm push ${{ env.HELM_CHART_NAME }}-0.1.0.tgz oci://$REGISTRY
 
     - name: Clear post-build
       env:
