@@ -40,7 +40,7 @@ jobs:
         working-directory: ./app
 
     env:
-      REPOSRITORY:: krzysztof-homework-app
+      REPOSITORY: krzysztof-homework-app
       IMAGE_TAG: latest
 
     steps:
