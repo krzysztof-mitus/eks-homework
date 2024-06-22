@@ -9,7 +9,7 @@ class AppTestCase(unittest.TestCase):
     def test_index_route(self):
         response = self.app.get('/index.html')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Welcome to index.html page', response.data)
+        self.assertIn(b'Welcome to index.html TEST page', response.data)
 
     def test_echo_route(self):
         response = self.app.get('/')

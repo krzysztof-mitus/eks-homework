@@ -8,6 +8,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV ENV_NAME="DEFAULT"
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["python", "/app/app.py"]
