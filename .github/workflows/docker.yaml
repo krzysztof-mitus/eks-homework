@@ -9,6 +9,9 @@ jobs:
   test-python:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src/app
 
     steps:
     - name: Checkout code
