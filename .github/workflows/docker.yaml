@@ -72,7 +72,7 @@ jobs:
         AWS_REGION: ${{ secrets.AWS_REGION }}
       run: |
         aws ecr describe-repositories --repository-names ${{ env.REPOSITORY }} || \
-        aws ecr create-repository --repository-name ${{ env.REPOSITORY }}
+        aws ecr create-repository --repository-name ${{ env.REPOSITORY }} --media-type OCI_ARTIFACT
       
     - name: Build, tag, and push image to Amazon ECR
       env:
