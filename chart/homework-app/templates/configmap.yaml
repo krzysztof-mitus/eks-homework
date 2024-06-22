@@ -5,7 +5,25 @@ metadata:
   labels:
     {{- include "homework-app.labels" . | nindent 4 }}
 data:
-  index.html: |
-    {{ .Files.Get "../files/index.html" | indent 4 }}
   geolocation.html: |
-    {{ .Files.Get "../files/geolocation.html" | indent 4 }}
+    <html>
+      <head>
+        <title>Homework</title>
+      </head>
+      <body>
+        <h1>Welcome to echo page</h1>
+        <p>environment name: `{{ "{{ env_name }}" }}`</p>
+        <p>local ip: `{{ "{{ local_address }}" }}`</p>
+        <p>remote ip: `{{  "{{ remote_address }}" }}`</p>
+        <p>user geo-location: `{{ "{{ geo_location }}" }}`</p>
+      </body>
+    </html>
+  index.html: |
+    <html>
+      <head>
+        <title>Homework</title>
+      </head>
+      <body>
+        <h1>Welcome to index.html page</h1>
+      </body>
+    </html>
