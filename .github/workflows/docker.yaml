@@ -3,7 +3,7 @@ name: test, build and push to ECR
 on:
   push:
     branches:
-      - main
+      - project1
 
 jobs:
   test-python:
