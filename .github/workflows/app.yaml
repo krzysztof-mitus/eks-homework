@@ -31,7 +31,7 @@ jobs:
       run: |
         pytest
 
-build-and-push-docker:
+  build-and-push-docker:
     needs: test-python
     
     runs-on: ubuntu-latest
