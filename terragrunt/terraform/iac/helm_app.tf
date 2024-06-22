@@ -9,12 +9,14 @@ resource "helm_release" "homework" {
     repository_username = data.aws_ecr_authorization_token.token.user_name
     repository_password = data.aws_ecr_authorization_token.token.password    
 
+    create_namespace = true
+    
     values = [
         "${file("helm-values/homework-app/values.yaml")}"
     ]
     
     set {
-        name = image.registry
+        name = "image.registry"
         value = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${var.region}.amazonaws.com"
     }
 }
