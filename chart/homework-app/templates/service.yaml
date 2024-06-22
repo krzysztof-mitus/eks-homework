@@ -4,8 +4,15 @@ metadata:
   name: {{ include "homework-app.fullname" . }}
   labels:
     {{- include "homework-app.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   type: {{ .Values.service.type }}
+  {{- if eq .Values.service.type "LoadBalancer" }}  
+  loadBalancerClass: service.k8s.aws/nlb
+  {{- end }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}

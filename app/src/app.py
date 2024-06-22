@@ -19,6 +19,7 @@ def geolocation():
     return render_template('geolocation.html',
                             env_name = os.getenv('ENV_NAME', 'DEFAULT_ENV'),
                             local_address = socket.gethostbyname(socket.gethostname()),
+                            remote_address = remote_addr,
                             geo_location = geolocation)
 
 if __name__ == '__main__':

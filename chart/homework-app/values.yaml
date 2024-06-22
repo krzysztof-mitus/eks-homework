@@ -41,20 +41,19 @@ serviceAccount:
   name: ""
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 80
   targetPort: 8080
-
-ingress:
-  enabled: true
   annotations:
-    alb.ingress.kubernetes.io/scheme: "internet-facing"
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
-    alb.ingress.kubernetes.io/load-balancer-name: "krzysztof-homework"
-    alb.ingress.kubernetes.io/tags: "Environment=Development, Owner=Krzysztof"
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-target-group-attributes: preserve_client_ip.enabled=true
+    service.beta.kubernetes.io/aws-load-balancer-name: "krzysztof-homework"
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+    service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: HTTP
+    service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: "8080"
+    service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: "/"
+    service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "Environment=Development, Owner=Krzysztof"
 
-  path: "/*"
-  pathType: ImplementationSpecific
   
 
 resources: {}
@@ -72,11 +71,11 @@ resources: {}
 livenessProbe:
   httpGet:
     path: /
-    port: http
+    port: 8080
 readinessProbe:
   httpGet:
     path: /
-    port: http
+    port: 8080
 
 autoscaling:
   enabled: false
