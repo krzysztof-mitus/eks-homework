@@ -28,3 +28,27 @@ variable "tags" {
     default = {}
   
 }
+
+variable "homework_app_image_repo" {
+    description = "Homework app image repository"
+    type = string
+    default = ""
+}
+
+variable "homework_app_image_tag" {
+    description = "Homework app image tag"
+    type = string
+    default = "latest"
+}
+
+variable "homework_app_chart_name" {
+    description = "Homework app Helm chart name"
+    type = string
+    default = ""
+}
+
+variable "homework_app_chart_version" {
+    description = "Homework app Helm chart version"
+    type = string
+    default = ""
+}

@@ -16,4 +16,8 @@ remote_state {
 
 inputs = {
   region = "eu-central-1"
+  homework_app_image_repo = "krzysztof-homework-app"
+  homework_app_image_tag = "latest"
+  homework_app_chart_name = "homework-app"
+  homework_app_chart_version = "0.1.0"
 }
