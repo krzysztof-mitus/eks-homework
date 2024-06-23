@@ -51,7 +51,7 @@ service:
     service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: HTTP
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: "8080"
-    service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: "/"
+    service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: "/index.html"
     service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "Environment=Development, Owner=Krzysztof"
 
   
@@ -70,11 +70,11 @@ resources: {}
 
 livenessProbe:
   httpGet:
-    path: /
+    path: /index.html
     port: 8080
 readinessProbe:
   httpGet:
-    path: /
+    path: /index.html
     port: 8080
 
 autoscaling:
