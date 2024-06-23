@@ -11,7 +11,7 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Welcome to homework index.html TEST page', response.data)
 
-    def test_echo_route(self):
+    def test_geolocation_route(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'environment name', response.data)
