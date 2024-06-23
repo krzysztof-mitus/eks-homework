@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "homework-app.fullname" . }}
+  labels:
+    {{- include "homework-app.labels" . | nindent 4 }}
+data:
+  geolocation.html: |
+    <html>
+      <head>
+        <title>Homework</title>
+      </head>
+      <body>
+        <h1>Welcome to echo page</h1>
+        <p>environment name: `{{ "{{ cluster_env }}" }}`</p>
+        <p>local ip: `{{ "{{ local_address }}" }}`</p>
+        <p>remote ip: `{{  "{{ remote_address }}" }}`</p>
+        <p>user geo-location: `{{ "{{ geo_location }}" }}`</p>
+      </body>
+    </html>
+  index.html: |
+    <html>
+      <head>
+        <title>Homework</title>
+      </head>
+      <body>
+        <h1>Welcome to index.html page</h1>
+      </body>
+    </html>
