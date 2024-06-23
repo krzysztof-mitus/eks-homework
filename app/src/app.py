@@ -8,19 +8,33 @@ app = Flask(__name__, static_folder=os.getenv('TEMPLATES_DIR', 'templates'))
 
 @app.route('/index.html', methods=['GET'])
 def index():
-    return render_template('index.html')
+    try:
+        output = render_template('index.html')
+    except Exception as e:
+        output = f"Error occured while rendering index.html: {str(e)}"
+    return output
 
 
 @app.route('/', methods=['GET'])
 def geolocation():
     remote_addr = request.remote_addr
-    response = geocoder.ip(remote_addr)
-    geolocation = f"{response.latlng}, CITY: {response.city}, COUNTRY: {response.country}"
-    return render_template('geolocation.html',
-                            env_name = os.getenv('ENV_NAME', 'DEFAULT_ENV'),
-                            local_address = socket.gethostbyname(socket.gethostname()),
-                            remote_address = remote_addr,
-                            geo_location = geolocation)
+    try:
+        response = geocoder.ip(remote_addr)
+        geolocation = f"{response.latlng}, CITY: {response.city}, COUNTRY: {response.country}"
+    except Exception as e:
+        geolocation = f"Error occurred while fetching geolocation: {str(e)}"
+
+    try:
+        output = render_template('geolocation.html',
+                    cluster_env = os.getenv('CLUSTER_ENV', 'DEFAULT'),
+                    local_address = socket.gethostbyname(socket.gethostname()),
+                    remote_address = remote_addr,
+                    geo_location = geolocation)
+    except Exception as e:
+        output = f"Error occured while rendering index.html: {str(e)}"
+
+    return output
+
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 8080, debug = True)

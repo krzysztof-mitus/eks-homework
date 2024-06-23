@@ -1,3 +1,7 @@
+locals {
+    name = "aws-load-balancer-controller"
+}
+
 module "lb_role" {
     source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
     role_name                              = "${var.env_name}_eks_lb"
@@ -10,14 +14,13 @@ module "lb_role" {
     }
 }
 
-
-
 resource "kubernetes_service_account" "service-account" {
+    depends_on = [module.eks]
     metadata {
-        name      = "aws-load-balancer-controller"
+        name      = local.name
         namespace = "kube-system"
         labels = {
-            "app.kubernetes.io/name"      = "aws-load-balancer-controller"
+            "app.kubernetes.io/name"      = local.name
             "app.kubernetes.io/component" = "controller"
         }
         annotations = {
@@ -28,14 +31,12 @@ resource "kubernetes_service_account" "service-account" {
 }
 
 resource "helm_release" "alb-controller" {
-    name       = "aws-load-balancer-controller"
+    depends_on = [kubernetes_service_account.service-account]
+    name       = local.name
     repository = "https://aws.github.io/eks-charts"
-    chart      = "aws-load-balancer-controller"
+    chart      = local.name
     namespace  = "kube-system"
-    depends_on = [
-        kubernetes_service_account.service-account
-    ]
-
+    
     set {
         name  = "region"
         value = var.region
@@ -48,7 +49,7 @@ resource "helm_release" "alb-controller" {
 
     set {
         name  = "image.repository"
-        value = "602401143452.dkr.ecr.${var.region}.amazonaws.com/amazon/aws-load-balancer-controller"
+        value = "602401143452.dkr.ecr.${var.region}.amazonaws.com/amazon/${local.name}"
     }
 
     set {
@@ -58,11 +59,11 @@ resource "helm_release" "alb-controller" {
 
     set {
         name  = "serviceAccount.name"
-        value = "aws-load-balancer-controller"
+        value = local.name
     }
 
     set {
         name  = "clusterName"
-        value = var.name
+        value = var.cluster_name
     }
 }
