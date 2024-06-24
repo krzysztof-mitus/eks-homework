@@ -20,4 +20,11 @@ inputs = {
   homework_app_image_tag = "latest"
   homework_app_chart_name = "homework-app"
   homework_app_chart_version = "0.1.0"
+
+  tags = {
+    Name = "Krzysztof"
+    Owner = "Nati"
+    Department = "DevOps"
+    Temp = "True"
+  }
 }
