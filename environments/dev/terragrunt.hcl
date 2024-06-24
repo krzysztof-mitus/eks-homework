@@ -10,8 +10,11 @@ inputs = {
   env_name = "dev"
   cluster_name = "dev-cluster"
   tags = {
+    Name = "Krzysztof"
+    Owner = "Nati"
+    Department = "DevOps"
+    Temp = "True"
     Environment = "Development"
-    Owner = "Krzysztof"
   }
   vpc_cidr = "10.10.0.0/16"
 }
