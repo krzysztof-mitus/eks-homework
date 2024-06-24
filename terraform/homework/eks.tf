@@ -27,6 +27,12 @@ module "eks" {
       
       ami_type       = "AL2_x86_64"
       instance_types = ["t3.medium", "t3.large", "t3.xlarge"]
+      capacity_type  = "SPOT"
+      metadata_options = {
+        http_endpoint = "enabled"
+        http_tokens = "required"
+        HttpPutResponseHopLimit = 2
+      }
 
       min_size = 1
       max_size = 3

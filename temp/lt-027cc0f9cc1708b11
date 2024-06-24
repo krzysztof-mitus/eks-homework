@@ -1,0 +1,192 @@
+{
+    "LaunchTemplateVersions": [
+        {
+            "LaunchTemplateId": "lt-027cc0f9cc1708b11",
+            "LaunchTemplateName": "one-20240527121627602500000014",
+            "VersionNumber": 2,
+            "VersionDescription": "Custom launch template for boaz-eks-node-group-1 EKS managed node group",
+            "CreateTime": "2024-05-27T14:34:44+00:00",
+            "CreatedBy": "arn:aws:iam::329082085800:user/boaz",
+            "DefaultVersion": true,
+            "LaunchTemplateData": {
+                "BlockDeviceMappings": [
+                    {
+                        "DeviceName": "/dev/xvda",
+                        "Ebs": {
+                            "Encrypted": true,
+                            "DeleteOnTermination": true,
+                            "Iops": 3000,
+                            "VolumeSize": 75,
+                            "VolumeType": "gp3",
+                            "Throughput": 150
+                        }
+                    }
+                ],
+                "Monitoring": {
+                    "Enabled": true
+                },
+                "TagSpecifications": [
+                    {
+                        "ResourceType": "instance",
+                        "Tags": [
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "boaz-eks-node-group-1"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "network-interface",
+                        "Tags": [
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "boaz-eks-node-group-1"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "volume",
+                        "Tags": [
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "boaz-eks-node-group-1"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            },
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            }
+                        ]
+                    }
+                ],
+                "SecurityGroupIds": [
+                    "sg-0760010313eee67ff"
+                ],
+                "MetadataOptions": {
+                    "HttpTokens": "required",
+                    "HttpPutResponseHopLimit": 2,
+                    "HttpEndpoint": "enabled"
+                }
+            }
+        },
+        {
+            "LaunchTemplateId": "lt-027cc0f9cc1708b11",
+            "LaunchTemplateName": "one-20240527121627602500000014",
+            "VersionNumber": 1,
+            "VersionDescription": "Custom launch template for boaz-eks-node-group-1 EKS managed node group",
+            "CreateTime": "2024-05-27T12:16:29+00:00",
+            "CreatedBy": "arn:aws:iam::329082085800:user/boaz",
+            "DefaultVersion": false,
+            "LaunchTemplateData": {
+                "Monitoring": {
+                    "Enabled": true
+                },
+                "UserData": "",
+                "TagSpecifications": [
+                    {
+                        "ResourceType": "instance",
+                        "Tags": [
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "boaz-eks-node-group-1"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            },
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "network-interface",
+                        "Tags": [
+                            {
+                                "Key": "Name",
+                                "Value": "boaz-eks-node-group-1"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            },
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "volume",
+                        "Tags": [
+                            {
+                                "Key": "Name",
+                                "Value": "boaz-eks-node-group-1"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            },
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            }
+                        ]
+                    }
+                ],
+                "SecurityGroupIds": [
+                    "sg-0760010313eee67ff"
+                ],
+                "MetadataOptions": {
+                    "HttpTokens": "required",
+                    "HttpPutResponseHopLimit": 2,
+                    "HttpEndpoint": "enabled"
+                }
+            }
+        }
+    ]
+}

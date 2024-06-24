@@ -53,9 +53,7 @@ service:
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: HTTP
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: "8080"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: "/index.html"
-    service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "Environment=Development, Owner=Krzysztof"
-
-  
+    service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "Name=Krzysztof,Owner=Nati,Department=DevOps,Temp=True"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

@@ -1,0 +1,192 @@
+
+{
+    "LaunchTemplateVersions": [
+        {
+            "LaunchTemplateId": "lt-01666473a7b0c291a",
+            "LaunchTemplateName": "Krzysztof-20240624110706842100000001",
+            "VersionNumber": 2,
+            "VersionDescription": "Custom launch template for Krzysztof EKS managed node group",
+            "CreateTime": "2024-06-24T11:11:14+00:00",
+            "CreatedBy": "arn:aws:iam::329082085800:user/Krzysztof",
+            "DefaultVersion": true,
+            "LaunchTemplateData": {
+                "Monitoring": {
+                    "Enabled": true
+                },
+                "TagSpecifications": [
+                    {
+                        "ResourceType": "instance",
+                        "Tags": [
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "Krzysztof"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            },
+                            {
+                                "Key": "keep",
+                                "Value": "3"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "network-interface",
+                        "Tags": [
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            },
+                            {
+                                "Key": "keep",
+                                "Value": "3"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "Krzysztof"
+                            },
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "volume",
+                        "Tags": [
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            },
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "keep",
+                                "Value": "3"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "Krzysztof"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            }
+                        ]
+                    }
+                ],
+                "SecurityGroupIds": [
+                    "sg-0e8c937cef82a9ef7"
+                ],
+                "MetadataOptions": {
+                    "HttpTokens": "required",
+                    "HttpEndpoint": "disabled",
+                    "InstanceMetadataTags": "enabled"
+                }
+            }
+        },
+        {
+            "LaunchTemplateId": "lt-01666473a7b0c291a",
+            "LaunchTemplateName": "Krzysztof-20240624110706842100000001",
+            "VersionNumber": 1,
+            "VersionDescription": "Custom launch template for Krzysztof EKS managed node group",
+            "CreateTime": "2024-06-24T11:07:06+00:00",
+            "CreatedBy": "arn:aws:iam::329082085800:user/Krzysztof",
+            "DefaultVersion": false,
+            "LaunchTemplateData": {
+                "Monitoring": {
+                    "Enabled": true
+                },
+                "UserData": "",
+                "TagSpecifications": [
+                    {
+                        "ResourceType": "instance",
+                        "Tags": [
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "Krzysztof"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "network-interface",
+                        "Tags": [
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Name",
+                                "Value": "Krzysztof"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            }
+                        ]
+                    },
+                    {
+                        "ResourceType": "volume",
+                        "Tags": [
+                            {
+                                "Key": "Name",
+                                "Value": "Krzysztof"
+                            },
+                            {
+                                "Key": "Owner",
+                                "Value": "Nati"
+                            },
+                            {
+                                "Key": "Temp",
+                                "Value": "True"
+                            },
+                            {
+                                "Key": "Department",
+                                "Value": "DevOps"
+                            }
+                        ]
+                    }
+                ],
+                "SecurityGroupIds": [
+                    "sg-0e8c937cef82a9ef7"
+                ],
+                "MetadataOptions": {
+                    "HttpTokens": "required",
+                    "HttpEndpoint": "disabled",
+                    "InstanceMetadataTags": "enabled"
+                }
+            }
+        }
+    ]
+}
