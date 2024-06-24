@@ -38,4 +38,8 @@ EKS public endpoint is exposed.
 ```
 6. Approve plan and wait
 7. In web browser use url from terragrunt output url_homework_geolocation
-
+8. To access k8s cluster type (use dev-cluster|staging-cluster|prod-cluster depending on env):
+```
+# aws eks update-kubeconfig --name dev-cluster
+# kubectl version
+```
